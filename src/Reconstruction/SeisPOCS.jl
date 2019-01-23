@@ -70,7 +70,7 @@ function SeisPOCS(in;p=1.,dt=0.001,fmax=99999.,padt=2,padx=1,Niter=100,alpha=1)
 		    end
 		end
 		y = ifft(Y)
-		y = alpha*x + (1-alpha*T).*y
+		y = alpha*x + (1 .- alpha*T).*y
 	    end
 	    D[iw,:,:,:,:] = y
 	end

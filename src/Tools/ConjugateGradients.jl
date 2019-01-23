@@ -5,7 +5,7 @@ function ConjugateGradients(d,operators,parameters;Niter=10,mu=0,tol=1.0e-15)
     cost = Float64[]
     r = copy(d)
     g = LinearOperator(r,operators,parameters,adj=true)
-    m = zeros(g)
+    m = zero(g)
     s = copy(g)
     gamma = InnerProduct(g,g)
     gamma00 = gamma
@@ -37,5 +37,3 @@ function ConjugateGradients(d,operators,parameters;Niter=10,mu=0,tol=1.0e-15)
 
     return m, cost
 end
-
-
