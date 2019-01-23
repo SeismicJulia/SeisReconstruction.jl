@@ -29,8 +29,8 @@ function SeisPOCS(in;p=1.,dt=0.001,fmax=99999.,padt=2,padx=1,Niter=100,alpha=1)
     nx4 = size(in,5)
     d = zeros(Float32,nt,nx1,nx2,nx3,nx4)
     d[1:nt,1:nx1,1:nx2,1:nx3,1:nx4] = in
-    nf = padt*nextpow2(nt)
-    dw = 2.*pi/nf/dt
+    nf = padt*nextpow(2, nt)
+    dw = convert(Float64,2*pi/nf/dt)
     nw = round(Int,nf/2) + 1
     fmax = fmax < 0.5/dt ? fmax : 0.5/dt
     if(fmax*dt*nf < nw)
@@ -38,10 +38,10 @@ function SeisPOCS(in;p=1.,dt=0.001,fmax=99999.,padt=2,padx=1,Niter=100,alpha=1)
     else
 	iw_max = round(Int,floor(0.5/dt))
     end
-    nx1 > 1 ? nk1 = padx*nextpow2(nx1) : nk1 = 1
-    nx2 > 1 ? nk2 = padx*nextpow2(nx2) : nk2 = 1
-    nx3 > 1 ? nk3 = padx*nextpow2(nx3) : nk3 = 1
-    nx4 > 1 ? nk4 = padx*nextpow2(nx4) : nk4 = 1
+    nx1 > 1 ? nk1 = padx*nextpow(2, nx1) : nk1 = 1
+    nx2 > 1 ? nk2 = padx*nextpow(2, nx2) : nk2 = 1
+    nx3 > 1 ? nk3 = padx*nextpow(2, nx3) : nk3 = 1
+    nx4 > 1 ? nk4 = padx*nextpow(2, nx4) : nk4 = 1
     nk = nk1*nk2*nk3*nk4
     # generate sampling operator from the padded data
     T = CalculateSampling(d)
