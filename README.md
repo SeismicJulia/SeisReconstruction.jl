@@ -36,6 +36,10 @@ If you use the SeismicJulia project, please cite the following paper
 ```
  
 ## Basic usage
+For SeisPlot, please refer [here](https://github.com/SeismicJulia/SeisPlot.jl).
+
+For SeisProcessing, please refer [here](https://github.com/SeismicJulia/SeisProcessing.jl).
+
 The following example produces the figure below.
 
 ```Julia
