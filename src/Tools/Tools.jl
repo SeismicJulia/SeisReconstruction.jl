@@ -5,7 +5,7 @@ FFTOp,
 WeightingOp,
 ConjugateGradients,
 LinearOpertator,
-InnerProduct
+InnerProduct,
 MatrixMultiplyOp
 include("CalculateSampling.jl")
 include("Pad5D.jl")
