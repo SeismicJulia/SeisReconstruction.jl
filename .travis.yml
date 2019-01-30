@@ -2,8 +2,6 @@ language: julia
 julia:
   - 0.7
   
-script:
-  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-  - julia -e 'using Pkg'
-  - julia -e 'Pkg.build()' 
-  - julia -e 'Pkg.test(coverage=true)'
+using Pkg
+Pkg.build() 
+Pkg.test(coverage=true)
