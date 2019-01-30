@@ -7,7 +7,7 @@
 
 # SeisReconstruction.jl
 
-[![Build Status](https://travis-ci.org/SeismicJulia/SeisReconstruction.jl.svg?branch=master)](https://travis-ci.org/SeismicJulia/SeisReconstruction.jl)
+[![Build Status](https://travis-ci.org/fercarozzi/SeisReconstruction.jl.svg?branch=master)](https://travis-ci.org/fercarozzi/SeisReconstruction.jl)
 
 This package contains Reconstruction tools for SeismicJulia project.
 
