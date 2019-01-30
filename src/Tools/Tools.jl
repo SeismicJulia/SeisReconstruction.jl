@@ -5,7 +5,8 @@ FFTOp,
 WeightingOp,
 ConjugateGradients,
 LinearOperator,
-MatrixMultiplyOp
+MatrixMultiplyOp,
+DotTest
 include("CalculateSampling.jl")
 include("Pad5D.jl")
 include("IRLS.jl")
@@ -14,3 +15,4 @@ include("WeightingOp.jl")
 include("ConjugateGradients.jl")
 include("LinearOperator.jl")
 include("MatrixMultiplyOp.jl")
+include("DotTest.jl")

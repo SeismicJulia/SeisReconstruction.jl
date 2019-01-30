@@ -1,4 +1,4 @@
-using SeisProcessing
+using SeisReconstruction
 using Base.Test
 
 # test that FFTOp passes the dot product test
@@ -20,4 +20,3 @@ parameters = [Dict(:w=>T),Dict(:normalize=>true),Dict(:w=>fill(1,size(T)))]
 
 a,b = SeisReconstruction.DotTest(m_rand,d_rand,operators,parameters)
 @test abs((a-b)/a) < 0.01
-
