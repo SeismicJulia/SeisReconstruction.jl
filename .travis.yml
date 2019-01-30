@@ -3,6 +3,7 @@ julia:
   - 0.7
   
 script:
- using Pkg
- Pkg.build() # Pkg.build(; verbose = true) for Julia 1.1 and up
- Pkg.test(coverage=true)
+  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+  - julia -e 'using Pkg'
+  - julia -e 'Pkg.build()' 
+  - julia -e 'Pkg.test(coverage=true)'
