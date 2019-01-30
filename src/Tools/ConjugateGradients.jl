@@ -7,13 +7,13 @@ function ConjugateGradients(d,operators,parameters;Niter=10,mu=0,tol=1.0e-15)
     g = LinearOperator(r,operators,parameters,adj=true)
     m = zero(g)
     s = copy(g)
-    gamma = dot(g,g)
+    gamma = InnerProduct(g,g)
     gamma00 = gamma
-    cost0 = dot(r,r)
+    cost0 = InnerProduct(r,r)
     push!(cost,1.0)
     for iter = 1 : Niter
 	t = LinearOperator(s,operators,parameters,adj=false)
-	delta = dot(t,t) + mu*dot(s,s)
+	delta = InnerProduct(t,t) + mu*InnerProduct(s,s)
 	if delta <= tol
 #	    println("delta reached tolerance, ending at iteration ",iter)
 	    break;
@@ -24,8 +24,8 @@ function ConjugateGradients(d,operators,parameters;Niter=10,mu=0,tol=1.0e-15)
 	g = LinearOperator(r,operators,parameters,adj=true)
 	g = g - mu*m
 	gamma0 = copy(gamma)
-	gamma = dot(g,g)
-        cost1 = dot(r,r) + mu*dot(m,m)
+	gamma = InnerProduct(g,g)
+        cost1 = InnerProduct(r,r) + mu*InnerProduct(m,m)
         push!(cost,cost1/cost0)
 	beta = gamma/gamma0
 	s = beta*s + g

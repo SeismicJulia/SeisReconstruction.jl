@@ -6,6 +6,7 @@ WeightingOp,
 ConjugateGradients,
 LinearOperator,
 MatrixMultiplyOp,
+InnerProduct,
 DotTest
 include("CalculateSampling.jl")
 include("Pad5D.jl")
@@ -15,4 +16,5 @@ include("WeightingOp.jl")
 include("ConjugateGradients.jl")
 include("LinearOperator.jl")
 include("MatrixMultiplyOp.jl")
+include("InnerProduct.jl")
 include("DotTest.jl")
