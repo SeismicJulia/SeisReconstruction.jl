@@ -4,8 +4,10 @@ IRLS,
 FFTOp,
 WeightingOp,
 ConjugateGradients,
-LinearOpertator,
-InnerProduct
+LinearOperator,
+MatrixMultiplyOp,
+InnerProduct,
+DotTest
 include("CalculateSampling.jl")
 include("Pad5D.jl")
 include("IRLS.jl")
@@ -13,4 +15,6 @@ include("FFTOp.jl")
 include("WeightingOp.jl")
 include("ConjugateGradients.jl")
 include("LinearOperator.jl")
+include("MatrixMultiplyOp.jl")
 include("InnerProduct.jl")
+include("DotTest.jl")
