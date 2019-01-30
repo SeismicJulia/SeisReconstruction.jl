@@ -1,6 +1,6 @@
 using SeisReconstruction
 using LinearAlgebra
-using Base.Test
+using Test
 
 # test of Conjugate Gradients
 nd = 1000

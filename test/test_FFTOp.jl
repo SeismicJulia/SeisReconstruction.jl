@@ -1,5 +1,5 @@
 using SeisReconstruction
-using Base.Test
+using Test
 
 # test that FFTOp passes the dot product test
 
