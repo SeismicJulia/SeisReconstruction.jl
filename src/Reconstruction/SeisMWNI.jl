@@ -1,21 +1,18 @@
 """
-**SeisMWNI**
+    SeisMWNI(in;<keyword arguments>)
 
-*Minimum Weighted Norm Interpolation of seismic records.*
+Minimum Weighted Norm Interpolation of seismic records.
 
-**IN**
+# Arguments
+- `in`: up to 5D input data. First dimension is time.
+- `dt=0.001` : sampling rate along the time axis (in seconds)
+- `fmax=99999.` : maximum temporal frequency to process.
+- `padt=2` : padding in the time axis, first dimension.
+- `padx=1` : padding in the spatial axes. (Dim 2 to 5).
+- `Niter_internal=10` : number of internal iterations for Conjugate Gradients
+- `Niter_external=3` : number of external iterations for iterative reweighting
+- `mu=0`
 
-* d_in: input data that can have up to 5 dimensions
-* dt=0.001 sampling rate along the time axis (in seconds)
-* fmax=99999. maximum temporal frequency to process.
-* padt=2 padding to use for the time axis
-* padx=1 padding to use for the spatial axes
-* Niter_internal=10 number of internal iterations for Conjugate Gradients
-* Niter_external=3 number of external iterations for iterative reweighting
-
-**OUT**
-
-* d_out: interpolated data
 """
 function SeisMWNI(in;dt=0.001,fmax=99999.,padt=2,padx=1,Niter_internal=10,Niter_external=3,mu=0)
 
