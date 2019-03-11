@@ -1,5 +1,15 @@
+"""
+    IRLS(d,operators,parameters;<keyword arguments>)
+
+Non-quadratic regularization with Iteratively Reweighted Least Squares (IRLS).
+
+# Arguments
+- `Niter_external=3`
+- 'Niter_internal=10'
+- `mu=0`
+
+"""
 function IRLS(d,operators,parameters;Niter_external=3,Niter_internal=10,mu=0)
-	# Non-quadratic regularization with Iteratively Reweighted Least Squares (IRLS).
 
 	cost = Float64[]
 	weights = ones(Float64,size(d))

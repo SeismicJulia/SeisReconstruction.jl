@@ -1,3 +1,10 @@
+"""
+    CalculateSampling(in)
+
+Calculate the sampling operator of an n-dimension input. The output has the
+same size as the input. 
+
+"""
 function CalculateSampling(in)
 
 cutoff = 1e-10
