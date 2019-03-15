@@ -1,4 +1,5 @@
 using SeisReconstruction
+using SeisProcessing
 using LinearAlgebra
 using Test
 
