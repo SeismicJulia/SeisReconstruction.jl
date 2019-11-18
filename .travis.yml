@@ -2,6 +2,23 @@ language: julia
 julia:
   - 1.1
 
+branches:
+   only:
+    - master
+    - gh-pages
+
 script:
   - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
   - julia -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/SeismicJulia/SeisProcessing.jl.git"));Pkg.build(); Pkg.test("SeisReconstruction"; coverage=true)'
+
+jobs:
+  include:
+    - stage: "Documentation"
+      julia: 1.0
+      os: linux
+      script: 
+         - julia --project=docs/ -e 'using Pkg; Pkg.develop(PackageSpec(path=pwd()))
+         - julia --project=docs/ docs/make.jl
+
+      after_success: skip
+			
