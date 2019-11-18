@@ -1,6 +1,5 @@
 using Pkg; Pkg.add("Documenter")
-using Documenter
-using SeisReconstruction
+using Documenter, SeisReconstruction
 
 makedocs(
     sitename = "SeisReconstruction.jl",
@@ -17,6 +16,8 @@ makedocs(
 # Documenter can also automatically deploy documentation to gh-pages.
 # See "Hosting Documentation" and deploydocs() in the Documenter manual
 # for more information.
-#=deploydocs(
-    repo = "github.com/SeismicJulia/SeisProcessing.jl.git"
-)=#
+
+deploydocs(
+	repo = "github.com/SeismicJulia/SeisReconstruction.jl.git",
+        target = "build"
+)
