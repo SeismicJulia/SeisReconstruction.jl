@@ -3,7 +3,7 @@ using Documenter, SeisReconstruction
 
 makedocs(
     sitename = "SeisReconstruction.jl",
-    format = Documenter.HTML(),
+    format = Documenter.HTML(prettyurls = get(ENV, "CI", nothing) == "true"),
     modules = [SeisReconstruction],
     pages = [
         "Home" => "index.md",
@@ -19,5 +19,7 @@ makedocs(
 
 deploydocs(
 	repo = "github.com/SeismicJulia/SeisReconstruction.jl.git",
-        target = "build"
+        target = "build",
+	deps = nothing,
+	make = nothing
 )
