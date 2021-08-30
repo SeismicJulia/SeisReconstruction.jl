@@ -7,8 +7,8 @@ ConjugateGradients,
 LinearOperator,
 MatrixMultiplyOp,
 InnerProduct,
-DotTest
-FISTA
+DotTest,
+FISTA,
 power_method
 include("CalculateSampling.jl")
 include("Pad5D.jl")
