@@ -8,6 +8,8 @@ LinearOperator,
 MatrixMultiplyOp,
 InnerProduct,
 DotTest
+FISTA
+power_method
 include("CalculateSampling.jl")
 include("Pad5D.jl")
 include("IRLS.jl")
@@ -18,3 +20,5 @@ include("LinearOperator.jl")
 include("MatrixMultiplyOp.jl")
 include("InnerProduct.jl")
 include("DotTest.jl")
+include("FISTA.jl")
+include("power_method.jl")
