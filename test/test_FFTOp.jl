@@ -1,7 +1,11 @@
 using SeisReconstruction
 using Test
 
-# test that FFTOp passes the dot product test
+# test that a linear operator passes the dot product test. 
+# See, for instance, Earth Soundings Analysis: Processing Versus Inversion by Jon Clearbout
+
+# The lineaer operaor is given by L =  T FFTop W
+# where T is sampling,FFTop is an inverse FFT and W is applying weights
 
 m_rand = rand(ComplexF64,(20,20,20,20));
 d_rand = rand(ComplexF64,(20,20,20,20));
