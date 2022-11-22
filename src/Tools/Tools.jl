@@ -9,7 +9,8 @@ MatrixMultiplyOp,
 InnerProduct,
 DotTest,
 FISTA,
-power_method
+power_method,
+Convmtx
 include("CalculateSampling.jl")
 include("Pad5D.jl")
 include("IRLS.jl")
@@ -22,3 +23,4 @@ include("InnerProduct.jl")
 include("DotTest.jl")
 include("FISTA.jl")
 include("power_method.jl")
+include("Convmtx.jl")
