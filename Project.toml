@@ -13,6 +13,11 @@ LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 
 [compat]
 julia = "1"
+DSP = "0.6, 0.7"
+FFTW = "1"
+Documenter = "0.27"
+DocumenterTools = "0.1"
+Interpolations = "14"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
