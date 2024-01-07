@@ -19,7 +19,6 @@ function FISTA(x0,y,operators,parameters; μ= 0.5,Ni=100,tolerance=1.0e-3,histor
     norm_cost=1.0;
     Je=Float64[]
     push!(Je,norm_cost)
-    dμ= μ/Ni;
     k=0;
 
 
@@ -36,9 +35,6 @@ function FISTA(x0,y,operators,parameters; μ= 0.5,Ni=100,tolerance=1.0e-3,histor
 
             #Update counter
             k=k+1;
-            #μ= μ -k*dμ 
-          #  println("-----------------------------------------------")
-           # print("Monitoring iteration number and cost function "); @show k; @show J[k];
 
             #move and gradient direction and threshold
             m_old = m; # save model to perturb;
