@@ -1,3 +1,39 @@
+"""
+          
+            m, J = ADMM(m0,d_obs,operators,parameters; <keyword arguments>)
+
+Alternating Direction Method of Miltipliers (ADMM): A solver implements CGLS and Soft-thresholding to solve an 𝑙2-𝑙1 convex optimization problem.
+
+
+# Arguments: 
+- `m0`: Initial model.
+- `d_obs`: Observed data.
+- `operators`:  vector of linear operators applied.
+- `parameters`:  vector of parameters needed for each linear operator. Each parameter set must be passed as Dictionary.
+
+# Keyword arguments
+- `ρ`: Penalty parameter. Controls the stability in CGLS.
+- `μ`: Penalty parameter for the  𝑙2-𝑙1 convex optimization problem. Interacts with ρ in the thresholding step.
+- `tolin`: Tolerance for the nested loop iterations sovled via CGLS.  
+- `tolout`: Tolerance for the otuer loop iterations in ADMM.
+- `Ni`: Number of nested loop iterations.
+- `Ni`: Number of otuer loop iterations.
+- `history`: Display history. 
+
+# Output: 
+- `m`: Inverted model.
+- `J`: Objective function.
+
+
+# References: 
+
+Boyd, S., N. Parikh, E. Chu, B. Peleato, J. Eckstein, et al., 2011, Distributed optimization and statistical learning via
+the alternating direction method of multipliers: Foundations and Trends® in Machine learning, 3, 1–122.
+
+
+*Credits: Joaquin Acedo ,2023*
+
+"""
 function ADMM(m0,d_obs,operators,parameters; ρ= 0.5, μ= 5.0 ,tolin=1e-2, tolout=1e-4, Ni=5,Ne=50, history=true)
     
     
