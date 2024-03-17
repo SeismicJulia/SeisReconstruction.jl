@@ -16,8 +16,8 @@ Alternating Direction Method of Miltipliers (ADMM): A solver implements CGLS and
 - `μ`: Penalty parameter for the  𝑙2-𝑙1 convex optimization problem. Interacts with ρ in the thresholding step.
 - `tolin`: Tolerance for the nested loop iterations sovled via CGLS.  
 - `tolout`: Tolerance for the otuer loop iterations in ADMM.
-- `Ni`: Number of nested loop iterations.
-- `Ni`: Number of otuer loop iterations.
+- `Ni`: Number of inner loop iterations.
+- `Ne`: Number of external loop iterations.
 - `history`: Display history. 
 
 # Output: 

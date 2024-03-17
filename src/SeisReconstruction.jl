@@ -26,9 +26,9 @@ module SeisReconstruction
     export PowerMethod
     export SoftThresholding
     export WeightingOp
-    export SpecSize
+    export spec_size
     export LocalFFTOp
-    
+
 
     include("Reconstruction/Reconstruction.jl")
     include("Tools/Tools.jl")
