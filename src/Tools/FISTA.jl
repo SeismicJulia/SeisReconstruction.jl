@@ -1,9 +1,10 @@
 
 """
-          
+
             m, J = FISTA(m0,d_obs,operators,parameters; <keyword arguments>)
 
-Alternating Direction Method of Miltipliers (ADMM): A solver implements CGLS and Soft-thresholding to solve an 𝑙2-𝑙1 convex optimization problem.
+Fast Iterative Soft Thresholding Algorithm (FISTA): A solver implements a step in the Gradient Descent direction follow by Soft-thresholding of
+the output to solve an 𝑙2-𝑙1 convex optimization problem.
 
 
 # Arguments: 
