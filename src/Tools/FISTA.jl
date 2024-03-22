@@ -1,9 +1,43 @@
+
+"""
+
+            m, J = FISTA(m0,d_obs,operators,parameters; <keyword arguments>)
+
+Fast Iterative Soft Thresholding Algorithm (FISTA): A solver implements a step in the Gradient Descent direction follow by Soft-thresholding of
+the output to solve an 𝑙2-𝑙1 convex optimization problem.
+
+
+# Arguments: 
+- `m0`: Initial model.
+- `d_obs`: Observed data.
+- `operators`:  vector of linear operators applied.
+- `parameters`:  vector of parameters needed for each linear operator. Each parameter set must be passed as Dictionary.
+
+# Keyword arguments:
+- `ρ`: Penalty parameter. Controls the stability in CGLS.
+- `μ`: Penalty parameter for the  𝑙2-𝑙1 convex optimization problem. Interacts with ρ in the thresholding step.
+- `tolerance`: Tolerance for the nested loop iterations sovled via CGLS.  
+- `Ni`: Number of iterations.
+- `history`: Display history. 
+
+# Output: 
+- `m`: Inverted model.
+- `J`: Objective function.
+
+
+# References: 
+
+A. Beck and M. Teboulle, "A fast iterative shrinkage-thresholding algorithm for linear inverse problems", SIAM Journal on Imaging Sciences, vol. 2, no. 1, pp. 183–202, 2009.
+
+*Credits: Joaquin Acedo ,2023*
+
+"""
 function FISTA(x0,y,operators,parameters; μ= 0.5,Ni=100,tolerance=1.0e-3,history=true)
 
     println("")
-    println(" ==================================================")
-    println(" Fast Iterative Soft Thresholding Algorithm (FISTA)")
-    println(" ==================================================")
+    println("                ==================================================")
+    println("                Fast Iterative Soft Thresholding Algorithm (FISTA)")
+    println("                ==================================================")
     println("")
 
     #Initialize
@@ -49,6 +83,7 @@ function FISTA(x0,y,operators,parameters; μ= 0.5,Ni=100,tolerance=1.0e-3,histor
             t = (0.5)*(1.0 + sqrt(1.0 + 4.0*(t_old)^2));
             p = m +((t_old-1.0)/t)*(m-m_old);
 
+            #Build objective function
             yp= LinearOperator(m,operators,parameters,adj=false);
             misfit_term= sum(abs.(yp .- y).^2);
             regularization_term= sum(abs.(m));  
@@ -56,6 +91,7 @@ function FISTA(x0,y,operators,parameters; μ= 0.5,Ni=100,tolerance=1.0e-3,histor
             norm_cost = cost/J0; 
             push!(Je,norm_cost);
             
+            #History and tolerance
             if history
                 @printf("%3.0f %20.10e %20.10e %20.10e %20.10e\n", k, misfit_term, regularization_term,μ, norm_cost);
             end

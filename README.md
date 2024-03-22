@@ -19,9 +19,9 @@ To use this package you must first install the [Julia](http://julialang.org/down
 Then, run the Julia application and type, at the prompt
 
 ```
-julia>using Pkg
-julia>Pkg.add(PackageSpec(url="https://github.com/SeismicJulia/SeisReconstruction.jl.git"))
-julia>using SeisReconstruction
+julia> ] 
+pkg> add SeisReconstruction
+julia> using SeisReconstruction
 ```
 
 If you use the SeismicJulia project, please cite the following paper

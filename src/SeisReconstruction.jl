@@ -1,9 +1,17 @@
 module SeisReconstruction
-    using Interpolations,FFTW, LinearAlgebra,DSP
-    include("Reconstruction/Reconstruction.jl")
-    include("Tools/Tools.jl")
+    
+    #Dependencies
+    using Interpolations
+    using FFTW
+    using LinearAlgebra
+    using DSP
+    using Statistics
+    using Printf
 
 
+    #Export functions
+    export ADMM
+    export CGLS
     export CalculateSampling
     export ConjugateGradients
     export Convmtx
@@ -18,4 +26,12 @@ module SeisReconstruction
     export PowerMethod
     export SoftThresholding
     export WeightingOp
+    export spec_size
+    export LocalFFTOp
+
+
+    include("Reconstruction/Reconstruction.jl")
+    include("Tools/Tools.jl")
+    include("Tools/GLF/GeneralizedLocalFourierOp.jl")
+
 end
