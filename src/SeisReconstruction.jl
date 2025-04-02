@@ -2,12 +2,18 @@ module SeisReconstruction
     
     #Dependencies
     using Interpolations
-    using FFTW
-    using LinearAlgebra
-    using DSP
-    using Statistics
-    using Printf
-
+    using DSP;
+    using FFTW;
+    using LinearAlgebra: norm, dot, qr, normalize;
+    using Printf: @printf;
+    using Statistics;
+    using Base.Threads: @threads, nthreads;
+    using Distributed;
+   # using SharedArrays
+    import SeisProcessing;
+    using Random;
+    
+    
 
     #Export functions
     export ADMM
@@ -30,8 +36,8 @@ module SeisReconstruction
     export LocalFFTOp
 
 
-    include("Reconstruction/Reconstruction.jl")
-    include("Tools/Tools.jl")
-    include("Tools/GLF/GeneralizedLocalFourierOp.jl")
 
+    include("./Reconstruction/Reconstruction.jl")
+    include("./Tools/Tools.jl");
+    include("./LocalFourierOp/GWFFT.jl");
 end

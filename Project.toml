@@ -5,12 +5,16 @@ version = "0.5.5"
 
 [deps]
 DSP = "717857b8-e6f2-59f4-9121-6e50c889abd2"
+Distributed = "8ba89e20-285c-5b6f-9357-94700520ee1b"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 DocumenterTools = "35a29f4d-8980-5a13-9543-d66fff28ecb8"
 FFTW = "7a1cc6ca-52ef-59f5-83cd-3a7055c09341"
 Interpolations = "a98d9a8b-a2ab-59e6-89dd-64a1c18fca59"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
 Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
+SeisProcessing = "3ac90d68-5a11-50c7-932e-af3f40d97fdc"
+SharedArrays = "1a1011a3-84de-559e-8e89-a11a2f7dc383"
 Statistics = "10745b16-79ce-11e8-11f9-7d13ad32a3b2"
 
 [compat]
