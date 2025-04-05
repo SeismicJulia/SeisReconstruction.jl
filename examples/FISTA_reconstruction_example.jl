@@ -20,7 +20,7 @@ p1=[0.15,0.2, 0.15]; # ray paramteter dimension2
 
 
 dtrue=SeisParabEvents( tau=tau,amp=amp, p2=p2,p1=p1, dt=dt, nt=nt, dx1=dx1, nx1=nx1, dx2=dx2, nx2=nx2, f0=f0)*(10^2);
-dtruen=SeisAddNoise(dtrue, 1.0, db=false, L=6);
+dtruen=SeisAddNoise(dtrue, 1.5, db=false, L=6);
 
 
 nt,nr,ns=size(dtruen);
@@ -30,13 +30,13 @@ dobsn =copy(dtruen); # scale
 #dobsn= SeisAddNoise(dobs, .8, db=false, L=6);
 
 
-dobsn=SeisDecimate(dobsn;mode="random",perc=40);
+dobsn=SeisDecimate(dobsn;mode="random",perc=50);
 S = CalculateSampling(dobsn)
 
 patch_size=(32,16,16); #Patch size in LocalFourier Operator5mu=μ,to
 Noverlap=(16,8,8); #Overlap of patches in LocalFourier Operator
 dims=size(dobsn); #Parameter to recover the right dimensions.
-μ= 5.0;
+μ= 10.0;
 tolout=1.e-10;
 parameters=  [Dict(:w => S),
 Dict(:patch_size=>patch_size, :Noverlap=>Noverlap, :dims=>dims, :normalize=>true, :padd=>false)];
@@ -87,6 +87,46 @@ title("drec")
 title("difference")
 xlabel("Offset (m)")
 ylabel("Time (s)")
+gca().tick_params(labelsize=10)
+
+tight_layout()
+
+
+
+
+# Create figure
+fig = PyPlot.figure(fignum=1, figsize=(15, 12))
+# Panel 1: dtrue
+subplot(141)
+SeisPlotFK(dtrue[:, :, ix], cmap="jet", dx=25.0, dy=0.004, fignum=1,fmax=50,interpolation="Hanning")
+title("dtrue")
+xlabel("Wanumber (1/m)")
+ylabel("Frequency (Hz)")
+gca().tick_params(labelsize=10)
+
+# Panel 2: dobs
+subplot(142)
+SeisPlotFK(dobsn[:, :, ix],cmap="jet", dx=25.0, dy=0.004, fignum=1,fmax=50,interpolation="Hanning")
+title("dobs")
+xlabel("Wanumber (1/m)")
+ylabel("Frequency (Hz)")
+gca().tick_params(labelsize=10)
+
+# Panel 3: drec
+subplot(143)
+SeisPlotFK(drec[:, :, ix],cmap="jet", dx=25.0, dy=0.004, fignum=1,fmax=50,interpolation="Hanning")
+title("drec")
+xlabel("Wanumber (1/m)")
+ylabel("Frequency (Hz)")
+gca().tick_params(labelsize=10)
+
+# Panel 4: difference
+subplot(144)
+SeisPlotFK(difference[:,:,ix], cmap="jet", dx=25.0, dy=0.004, fignum=1,fmax=50,interpolation="Hanning")
+title("drec")
+title("difference")
+xlabel("Wanumber (1/m)")
+ylabel("Frequency (Hz)")
 gca().tick_params(labelsize=10)
 
 tight_layout()
